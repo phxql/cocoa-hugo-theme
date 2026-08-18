@@ -7,12 +7,12 @@
                     {{ .Content }}
                 </div>
             {{ end }}
-            {{ $totalpostscount := len (where .Site.Pages "Section" "blog") }}
+            {{ $totalpostscount := len (where .Site.RegularPages "Section" "blog") }}
             {{ $latestpostscount := .Site.Params.latestpostscount | default $totalpostscount }}
             {{ if gt $latestpostscount 0 }}
                 <div class="page-heading">{{ i18n "latestPosts" }}</div>
                 <ul>
-                    {{ range (first $latestpostscount (where .Site.Pages.ByPublishDate.Reverse "Section" "blog")) }}
+                    {{ range (first $latestpostscount (where .Site.RegularPages.ByPublishDate.Reverse "Section" "blog")) }}
                         {{ partial "li.html" . }}
                     {{ end }}
                     {{ if gt $totalpostscount $latestpostscount }}

@@ -1,5 +1,7 @@
+{{ if .Site.Config.Services.GoogleAnalytics.ID }}
 <!-- Google Analytics -->
-{{ template "_internal/google_analytics_async.html" . }}
+{{ template "_internal/google_analytics.html" . }}
+{{ end }}
 
 {{ if .Site.Params.highlightjs }}
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
